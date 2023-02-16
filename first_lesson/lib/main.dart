@@ -24,8 +24,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // MaterialApp takes "named" argument
     // MaterialApp is a class
-    return const MaterialApp(
-      home: Text("Hello World!"),
+    return MaterialApp(
+      // scaffold provides basic ui
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            "My First App",
+          ),
+        ),
+        body: const Text("this is my text"),
+      ),
     );
   }
 }
