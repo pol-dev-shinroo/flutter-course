@@ -109,3 +109,18 @@ class Person {
           ],
         ),
 ```
+
+9. array
+
+```dart
+    var questions = <String>[
+      "What's is your favorite color?",
+      "What's your favorite animal"
+    ];
+    questions[0]
+    questions.elementAt(0)
+
+    // this is because array in dart is an object
+```
+
+10. states & stateful widget

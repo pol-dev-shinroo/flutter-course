@@ -7,23 +7,38 @@ import "package:flutter/material.dart";
 // arrow function is supported in dart
 void main() => runApp(const MyApp());
 
-class MyApp extends StatelessWidget {
+// ignore: must_be_immutable
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
-  // context is an object that holds meta info about our app
-  // BuildContext is a special object type
-  // build function needs to return a widget
-  // Widget is a class but also therefore a type
+  @override
+  State<StatefulWidget> createState() {
+    return MyAppState();
+  }
+}
+// context is an object that holds meta info about our app
+// BuildContext is a special object type
+// build function needs to return a widget
+// Widget is a class but also therefore a type
 
-  // ***here we simply declare build method, and flutter will run this method automatically
+// ***here we simply declare build method, and flutter will run this method automatically
 
-  // override is a decorator, provided by dart (not flutter)
-  // this is not required, but it makes clear that we are overriding the build method with our own implementation
-  // it is a common practice to use @override to make it clear that we are deliberately overriding a build method which is already provided by the statelesswidget. (build already exist in the class that we are extending: StatelessWidget)
+// override is a decorator, provided by dart (not flutter)
+// this is not required, but it makes clear that we are overriding the build method with our own implementation
+// it is a common practice to use @override to make it clear that we are deliberately overriding a build method which is already provided by the statelesswidget. (build already exist in the class that we are extending: StatelessWidget)
+
+class MyAppState extends State<MyApp> {
+  var questionIndex = 0;
 
   void answerQuestion(String question) {
+    setState(() {
+      if (questionIndex == 0) {
+        questionIndex = questionIndex + 1;
+      }
+    });
+
     // ignore: avoid_print
-    print("answer $question");
+    print(questionIndex);
   }
 
   @override
@@ -45,7 +60,7 @@ class MyApp extends StatelessWidget {
         ),
         body: Column(
           children: <Widget>[
-            const Text("This Question:"),
+            Text(questions.elementAt(questionIndex)),
             ElevatedButton(
               // ignore: avoid_print
               onPressed: () => answerQuestion("1"),
