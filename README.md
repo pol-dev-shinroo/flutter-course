@@ -13,7 +13,7 @@ flutter packages get
 
 3. types
 
-int, double, num, void, String
+int, double, num, void, String, null
 
 - every class is also a type
 

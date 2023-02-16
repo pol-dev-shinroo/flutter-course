@@ -24,6 +24,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // MaterialApp takes "named" argument
     // MaterialApp is a class
+
+    var questions = <String>[
+      "What's is your favorite color?",
+      "What's your favorite animal"
+    ];
     return MaterialApp(
       // scaffold provides basic ui
       home: Scaffold(
@@ -32,7 +37,26 @@ class MyApp extends StatelessWidget {
             "My First App",
           ),
         ),
-        body: const Text("this is my text"),
+        body: Column(
+          children: <Widget>[
+            const Text("This Question:"),
+            ElevatedButton(
+              // ignore: avoid_print
+              onPressed: () => {print("1")},
+              child: const Text("Answer 1"),
+            ),
+            ElevatedButton(
+              // ignore: avoid_print
+              onPressed: () => {print("2")},
+              child: const Text("Answer 2"),
+            ),
+            ElevatedButton(
+              // ignore: avoid_print
+              onPressed: () => {print("3")},
+              child: const Text("Answer 3"),
+            )
+          ],
+        ),
       ),
     );
   }
