@@ -60,7 +60,7 @@ class MyApp extends StatelessWidget {
               // ignore: avoid_print
               onPressed: () => answerQuestion("3"),
               child: const Text("Answer 3"),
-            )
+            ),
           ],
         ),
       ),
