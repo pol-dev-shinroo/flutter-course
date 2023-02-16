@@ -30,9 +30,11 @@ class MyApp extends StatefulWidget {
 class MyAppState extends State<MyApp> {
   var questionIndex = 0;
 
-  void answerQuestion(String question) {
+  void answerQuestion({String? question, required List questionList}) {
     setState(() {
-      if (questionIndex == 0) {
+      if (questionIndex == questionList.length - 1) {
+        questionIndex = 0;
+      } else {
         questionIndex = questionIndex + 1;
       }
     });
@@ -63,17 +65,20 @@ class MyAppState extends State<MyApp> {
             Text(questions.elementAt(questionIndex)),
             ElevatedButton(
               // ignore: avoid_print
-              onPressed: () => answerQuestion("1"),
+              onPressed: () =>
+                  answerQuestion(question: "1", questionList: questions),
               child: const Text("Answer 1"),
             ),
             ElevatedButton(
               // ignore: avoid_print
-              onPressed: () => answerQuestion("2"),
+              onPressed: () =>
+                  answerQuestion(question: "2", questionList: questions),
               child: const Text("Answer 2"),
             ),
             ElevatedButton(
               // ignore: avoid_print
-              onPressed: () => answerQuestion("3"),
+              onPressed: () =>
+                  answerQuestion(question: "3", questionList: questions),
               child: const Text("Answer 3"),
             ),
           ],
