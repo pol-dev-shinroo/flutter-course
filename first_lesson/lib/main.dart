@@ -20,6 +20,12 @@ class MyApp extends StatelessWidget {
   // override is a decorator, provided by dart (not flutter)
   // this is not required, but it makes clear that we are overriding the build method with our own implementation
   // it is a common practice to use @override to make it clear that we are deliberately overriding a build method which is already provided by the statelesswidget. (build already exist in the class that we are extending: StatelessWidget)
+
+  void answerQuestion(String question) {
+    // ignore: avoid_print
+    print("answer $question");
+  }
+
   @override
   Widget build(BuildContext context) {
     // MaterialApp takes "named" argument
@@ -42,17 +48,17 @@ class MyApp extends StatelessWidget {
             const Text("This Question:"),
             ElevatedButton(
               // ignore: avoid_print
-              onPressed: () => {print("1")},
+              onPressed: () => answerQuestion("1"),
               child: const Text("Answer 1"),
             ),
             ElevatedButton(
               // ignore: avoid_print
-              onPressed: () => {print("2")},
+              onPressed: () => answerQuestion("2"),
               child: const Text("Answer 2"),
             ),
             ElevatedButton(
               // ignore: avoid_print
-              onPressed: () => {print("3")},
+              onPressed: () => answerQuestion("3"),
               child: const Text("Answer 3"),
             )
           ],
