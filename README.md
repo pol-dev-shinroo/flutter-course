@@ -56,6 +56,8 @@ class Person{
 
 7. positional argument vs named argument
 
+\*\*\* all named argument is by default optional => hence to make it required, add required keyword
+
 ```dart
 void main(){
   var jaehyuk = Person(inputName: 'jaehyuk', age: 2 );
