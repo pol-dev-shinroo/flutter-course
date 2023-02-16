@@ -124,3 +124,45 @@ class Person {
 ```
 
 10. states & stateful widget
+
+- extends StatefulWidget
+
+```dart
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<StatefulWidget> createState() {
+    return MyAppState();
+  }
+}
+```
+
+- create NameState class
+
+```dart
+class MyAppState extends State<MyApp>{}
+```
+
+here, State is a generic class type
+
+- initialize state and a function that modifies the state
+
+```dart
+class MyAppState extends State<MyApp>{
+ var questionIndex = 0;
+
+  void answerQuestion(String question) {
+    // when updating state, always use setState method/ function
+    setState(() {
+      if (questionIndex == 0) {
+        questionIndex = questionIndex + 1;
+      }
+    });
+
+    // ignore: avoid_print
+    print(questionIndex);
+  }
+}
+
+```
