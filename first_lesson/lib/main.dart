@@ -54,15 +54,15 @@ class _MyAppState extends State<MyApp> {
     var questions = [
       {
         "questionText": "What's is your favorite color?",
-        "answers": ["Black", "Red", "Green", "Yellow"]
+        "answer": ["Black", "Red", "Green", "Yellow"]
       },
       {
         "questionText": "What's is your favorite animal?",
-        "answers": ["dog", "cat", "monkey", "fish"]
+        "answer": ["dog", "cat", "monkey"]
       },
       {
         "questionText": "What's is your favorite name?",
-        "answers": ["Max", "Pol", "James", "Peter"]
+        "answer": ["Max", "Pol", "James", "Peter"]
       },
     ];
     return MaterialApp(
@@ -74,23 +74,16 @@ class _MyAppState extends State<MyApp> {
           ),
         ),
         body: Column(
-          children: <Widget>[
+          children: [
             Question(questions[_questionIndex]["questionText"] as String),
-            Answer(
-              btnName: "Answer 1",
-              voidCallback: () =>
-                  _answerQuestion(question: "1", questionList: questions),
-            ),
-            Answer(
-              btnName: "Answer 2",
-              voidCallback: () =>
-                  _answerQuestion(question: "2", questionList: questions),
-            ),
-            Answer(
-              btnName: "Answer 3",
-              voidCallback: () =>
-                  _answerQuestion(question: "3", questionList: questions),
-            ),
+            ...(questions[_questionIndex]["answer"] as List<String>)
+                .map((answer) {
+              return Answer(
+                btnName: answer,
+                voidCallback: () =>
+                    _answerQuestion(question: "1", questionList: questions),
+              );
+            }).toList(),
           ],
         ),
       ),
