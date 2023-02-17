@@ -212,3 +212,6 @@ class MyAppState extends State<MyApp>{
 
 16. Getter
     => it is a mixture of property and a method
+
+17. wrapping widgets (vsc extension)
+    => Just right-click on a widget and press "Refactor".

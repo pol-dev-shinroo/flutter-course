@@ -2,7 +2,8 @@ import "package:flutter/material.dart";
 
 class Result extends StatelessWidget {
   final int score;
-  const Result({super.key, required this.score});
+  final VoidCallback resetFn;
+  const Result({super.key, required this.score, required this.resetFn});
 
   // value is calculated dynamically
   String get resultPhrase {
@@ -20,10 +21,15 @@ class Result extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text(
-        resultPhrase,
-        style: const TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
-        textAlign: TextAlign.center,
+      child: Column(
+        children: [
+          Text(
+            resultPhrase,
+            style: const TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+            textAlign: TextAlign.center,
+          ),
+          TextButton(onPressed: resetFn, child: const Text("Restart Quiz"))
+        ],
       ),
     );
   }

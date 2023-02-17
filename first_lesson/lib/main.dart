@@ -75,6 +75,13 @@ class _MyAppState extends State<MyApp> {
     print(_totalScore);
   }
 
+  void _resetQuiz() {
+    setState(() {
+      _questionIndex = 0;
+      _totalScore = 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // compile time constant => also implicitly runtime constant
@@ -97,7 +104,7 @@ class _MyAppState extends State<MyApp> {
                 questionIndex: _questionIndex,
                 answerQuestion: _answerQuestion,
               )
-            : Result(score: _totalScore),
+            : Result(score: _totalScore, resetFn: _resetQuiz),
       ),
     );
   }
