@@ -193,6 +193,7 @@ class MyAppState extends State<MyApp>{
 15. final vs const
     => **const variables are compile-time constants**, meaning that their values must be known at compile time. const variables are also single-assignment, just like final variables. However, because their values are known at compile time, they cannot be assigned a value that is determined at runtime.
     =>**In general, you should use final for variables whose values are determined at runtime, while const should be used for variables whose values are known at compile time**.
+    => runtime constant => which are initialized when app starts, but thereafter they dont change
 
 ```dart
   var questions =  [...]

@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import "./questions.dart";
 import "./answer.dart";
+import "./quiz.dart";
 
 // void main() {
 //   runApp(const MyApp());
@@ -47,8 +48,8 @@ class _MyAppState extends State<MyApp> {
     },
   ];
 
-  void _answerQuestion({String? question, required List questionList}) {
-    if (_questionIndex < questionList.length) {
+  void _answerQuestion() {
+    if (_questionIndex < questions.length) {
       setState(() {
         _questionIndex = _questionIndex + 1;
       });
@@ -73,19 +74,12 @@ class _MyAppState extends State<MyApp> {
             "My First App",
           ),
         ),
+        // ternary operator
         body: _questionIndex < questions.length
-            ? Column(
-                children: [
-                  Question(questions[_questionIndex]["questionText"] as String),
-                  ...(questions[_questionIndex]["answer"] as List<String>)
-                      .map((answer) {
-                    return Answer(
-                      btnName: answer,
-                      voidCallback: () => _answerQuestion(
-                          question: "1", questionList: questions),
-                    );
-                  }).toList(),
-                ],
+            ? Quiz(
+                questions: questions,
+                questionIndex: _questionIndex,
+                answerQuestion: _answerQuestion,
               )
             : const Center(child: Text("Completed!")),
       ),
