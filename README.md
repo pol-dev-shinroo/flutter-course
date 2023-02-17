@@ -168,3 +168,7 @@ class MyAppState extends State<MyApp>{
 ```
 
 ![image](https://user-images.githubusercontent.com/102004753/219544695-701ecf0d-f775-4283-8b0d-b8fdf3ba16a6.png)
+
+10. private property
+    => make sure somethings (properties + methods) inside the class cannot be manipulated externallly.
+    => underscore is a dart convention that makes it private (only be accessed within the current file)

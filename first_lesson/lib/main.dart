@@ -13,7 +13,7 @@ class MyApp extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    return MyAppState();
+    return _MyAppState();
   }
 }
 // context is an object that holds meta info about our app
@@ -27,20 +27,21 @@ class MyApp extends StatefulWidget {
 // this is not required, but it makes clear that we are overriding the build method with our own implementation
 // it is a common practice to use @override to make it clear that we are deliberately overriding a build method which is already provided by the statelesswidget. (build already exist in the class that we are extending: StatelessWidget)
 
-class MyAppState extends State<MyApp> {
-  var questionIndex = 0;
+// underscore makes sure that _MyAppState can only be accessed within main.dart
+class _MyAppState extends State<MyApp> {
+  var _questionIndex = 0;
 
   void answerQuestion({String? question, required List questionList}) {
     setState(() {
-      if (questionIndex == questionList.length - 1) {
-        questionIndex = 0;
+      if (_questionIndex == questionList.length - 1) {
+        _questionIndex = 0;
       } else {
-        questionIndex = questionIndex + 1;
+        _questionIndex = _questionIndex + 1;
       }
     });
 
     // ignore: avoid_print
-    print(questionIndex);
+    print(_questionIndex);
   }
 
   @override
@@ -62,7 +63,7 @@ class MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: <Widget>[
-            Text(questions.elementAt(questionIndex)),
+            Text(questions.elementAt(_questionIndex)),
             ElevatedButton(
               // ignore: avoid_print
               onPressed: () =>
