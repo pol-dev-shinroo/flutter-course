@@ -6,7 +6,7 @@ class Quiz extends StatelessWidget {
   // runtime constant => which are initialized when app starts, but thereafter they dont change
   final List<Map<String, Object>> questions;
   final int questionIndex;
-  final VoidCallback answerQuestion;
+  final Function answerQuestion;
 
   const Quiz(
       {super.key,
@@ -19,10 +19,11 @@ class Quiz extends StatelessWidget {
     return Column(
       children: [
         Question(questions[questionIndex]["questionText"] as String),
-        ...(questions[questionIndex]["answer"] as List<String>).map((answer) {
+        ...(questions[questionIndex]["answer"] as List<Map<String, Object>>)
+            .map((answer) {
           return Answer(
-            btnName: answer,
-            voidCallback: answerQuestion,
+            btnName: answer["text"] as String,
+            voidCallback: () => answerQuestion(answer["score"]),
           );
         }).toList(),
       ],

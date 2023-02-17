@@ -31,23 +31,40 @@ class MyApp extends StatefulWidget {
 
 // underscore makes sure that _MyAppState can only be accessed within main.dart
 class _MyAppState extends State<MyApp> {
-  var _questionIndex = 0;
   final questions = const [
     {
       "questionText": "What's is your favorite color?",
-      "answer": ["Black", "Red", "Green", "Yellow"]
+      "answer": [
+        {"text": "Black", "score": 6},
+        {"text": "Yellow", "score": 8},
+        {"text": "Green", "score": 9},
+        {"text": "Red", "score": 10},
+      ]
     },
     {
       "questionText": "What's is your favorite animal?",
-      "answer": ["dog", "cat", "monkey"]
+      "answer": [
+        {"text": "dog", "score": 6},
+        {"text": "cat", "score": 7},
+        {"text": "monkey", "score": 8},
+      ]
     },
     {
       "questionText": "What's is your favorite name?",
-      "answer": ["Max", "Pol", "James", "Peter"]
+      "answer": [
+        {"text": "Max", "score": 6},
+        {"text": "Pol", "score": 7},
+        {"text": "James", "score": 8},
+        {"text": "Peter", "score": 9},
+      ]
     },
   ];
 
-  void _answerQuestion() {
+  var _questionIndex = 0;
+  var _totalScore = 0;
+
+  void _answerQuestion(int score) {
+    _totalScore += score;
     if (_questionIndex < questions.length) {
       setState(() {
         _questionIndex = _questionIndex + 1;
@@ -55,7 +72,7 @@ class _MyAppState extends State<MyApp> {
     }
 
     // ignore: avoid_print
-    print(_questionIndex);
+    print(_totalScore);
   }
 
   @override
