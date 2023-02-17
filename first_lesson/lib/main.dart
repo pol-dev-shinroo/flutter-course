@@ -51,9 +51,19 @@ class _MyAppState extends State<MyApp> {
     // MaterialApp takes "named" argument
     // MaterialApp is a class
 
-    var questions = <String>[
-      "What's is your favorite color?",
-      "What's your favorite animal"
+    var questions = [
+      {
+        "questionText": "What's is your favorite color?",
+        "answers": ["Black", "Red", "Green", "Yellow"]
+      },
+      {
+        "questionText": "What's is your favorite animal?",
+        "answers": ["dog", "cat", "monkey", "fish"]
+      },
+      {
+        "questionText": "What's is your favorite name?",
+        "answers": ["Max", "Pol", "James", "Peter"]
+      },
     ];
     return MaterialApp(
       // scaffold provides basic ui
@@ -65,7 +75,7 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: <Widget>[
-            Question(questions.elementAt(_questionIndex)),
+            Question(questions[_questionIndex]["questionText"] as String),
             Answer(
               btnName: "Answer 1",
               voidCallback: () =>
