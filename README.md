@@ -13,7 +13,7 @@ flutter packages get
 
 3. types
 
-int, double, num, void, String, null
+int, double, num, void, String, null, Function, enum, List
 
 - every class is also a type
 
@@ -182,3 +182,10 @@ class MyAppState extends State<MyApp>{
     => final: cannot be reassigned (once build)
 
 ![image](https://user-images.githubusercontent.com/102004753/219548234-d38c7223-e85d-4928-af7f-7a563ccfc43a.png)
+
+13. "Lifting the state up"
+    => to manage the state on the shared, on the common denominator
+
+14. Callback
+    => passing function to a class constructor or anther function as a argument
+    => why "callback": because the receiving widget/ class calls it in the future

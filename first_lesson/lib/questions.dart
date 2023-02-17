@@ -11,7 +11,10 @@ class Question extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       // double infinity => takes as much space as much it can get => width 100% (full width)
+      // double is an object => basically everything in dart is an object
+      // infinity is a property of double object
       width: double.infinity,
+      // EdgetInsects has multiple constructor methods
       margin: const EdgeInsets.all(100),
       child: Text(
         questionText,
