@@ -172,3 +172,11 @@ class MyAppState extends State<MyApp>{
 10. private property
     => make sure somethings (properties + methods) inside the class cannot be manipulated externallly.
     => underscore is a dart convention that makes it private (only be accessed within the current file)
+
+11. custom widget
+    => common practice is to have just one widget per file
+    => use "st" shortcut to create stateless or stateful widget
+
+12. immutable warning
+    => add final to property
+    => final: cannot be reassigned (once build)
