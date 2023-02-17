@@ -35,7 +35,7 @@ class _MyAppState extends State<MyApp> {
     {
       "questionText": "What's is your favorite color?",
       "answer": [
-        {"text": "Black", "score": 6},
+        {"text": "Black", "score": 1},
         {"text": "Yellow", "score": 8},
         {"text": "Green", "score": 9},
         {"text": "Red", "score": 10},
@@ -44,7 +44,7 @@ class _MyAppState extends State<MyApp> {
     {
       "questionText": "What's is your favorite animal?",
       "answer": [
-        {"text": "dog", "score": 6},
+        {"text": "dog", "score": 1},
         {"text": "cat", "score": 7},
         {"text": "monkey", "score": 8},
       ]
@@ -52,7 +52,7 @@ class _MyAppState extends State<MyApp> {
     {
       "questionText": "What's is your favorite name?",
       "answer": [
-        {"text": "Max", "score": 6},
+        {"text": "Max", "score": 1},
         {"text": "Pol", "score": 7},
         {"text": "James", "score": 8},
         {"text": "Peter", "score": 9},
@@ -97,7 +97,7 @@ class _MyAppState extends State<MyApp> {
                 questionIndex: _questionIndex,
                 answerQuestion: _answerQuestion,
               )
-            : const Result(),
+            : Result(score: _totalScore),
       ),
     );
   }
