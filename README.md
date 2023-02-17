@@ -189,3 +189,17 @@ class MyAppState extends State<MyApp>{
 14. Callback
     => passing function to a class constructor or anther function as a argument
     => why "callback": because the receiving widget/ class calls it in the future
+
+15. final vs const
+    => **const variables are compile-time constants**, meaning that their values must be known at compile time. const variables are also single-assignment, just like final variables. However, because their values are known at compile time, they cannot be assigned a value that is determined at runtime.
+    =>**In general, you should use final for variables whose values are determined at runtime, while const should be used for variables whose values are known at compile time**.
+
+```dart
+  // this is possible
+  var questions = const [...]
+  questions = []
+
+  // however, this is not
+  const questions = const [...]
+  questions = []
+```

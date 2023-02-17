@@ -48,10 +48,9 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    // MaterialApp takes "named" argument
-    // MaterialApp is a class
-
-    var questions = [
+    // compile time constant => also implicitly runtime constant
+    // this will never change even during run time
+    const questions = [
       {
         "questionText": "What's is your favorite color?",
         "answer": ["Black", "Red", "Green", "Yellow"]
@@ -65,6 +64,8 @@ class _MyAppState extends State<MyApp> {
         "answer": ["Max", "Pol", "James", "Peter"]
       },
     ];
+    // MaterialApp takes "named" argument
+    // MaterialApp is a class
     return MaterialApp(
       // scaffold provides basic ui
       home: Scaffold(
