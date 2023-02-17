@@ -180,3 +180,5 @@ class MyAppState extends State<MyApp>{
 12. immutable warning
     => add final to property
     => final: cannot be reassigned (once build)
+
+![image](https://user-images.githubusercontent.com/102004753/219548234-d38c7223-e85d-4928-af7f-7a563ccfc43a.png)
