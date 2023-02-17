@@ -1,7 +1,6 @@
 import "package:flutter/material.dart";
-import "./questions.dart";
-import "./answer.dart";
 import "./quiz.dart";
+import "./result.dart";
 
 // void main() {
 //   runApp(const MyApp());
@@ -81,7 +80,7 @@ class _MyAppState extends State<MyApp> {
                 questionIndex: _questionIndex,
                 answerQuestion: _answerQuestion,
               )
-            : const Center(child: Text("Completed!")),
+            : const Result(),
       ),
     );
   }
