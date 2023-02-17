@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 
 class Answer extends StatelessWidget {
-  // final Function answerQuestion;
+  // final => it will not change once it has its original value
   final VoidCallback voidCallback;
   final String btnName;
 

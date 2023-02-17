@@ -64,6 +64,7 @@ class _MyAppState extends State<MyApp> {
         "answer": ["Max", "Pol", "James", "Peter"]
       },
     ];
+
     // MaterialApp takes "named" argument
     // MaterialApp is a class
     return MaterialApp(

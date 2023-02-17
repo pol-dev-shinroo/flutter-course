@@ -195,11 +195,16 @@ class MyAppState extends State<MyApp>{
     =>**In general, you should use final for variables whose values are determined at runtime, while const should be used for variables whose values are known at compile time**.
 
 ```dart
-  // this is possible
+  var questions =  [...]
+  questions = []
+
+  // this is not possible
+  const questions = [...]
+  questions = []
+
+  // no error during compilation (while coding), but throws error when run time
   var questions = const [...]
   questions = []
 
-  // however, this is not
-  const questions = const [...]
-  questions = []
+
 ```
