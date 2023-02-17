@@ -32,15 +32,27 @@ class MyApp extends StatefulWidget {
 // underscore makes sure that _MyAppState can only be accessed within main.dart
 class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
+  final questions = const [
+    {
+      "questionText": "What's is your favorite color?",
+      "answer": ["Black", "Red", "Green", "Yellow"]
+    },
+    {
+      "questionText": "What's is your favorite animal?",
+      "answer": ["dog", "cat", "monkey"]
+    },
+    {
+      "questionText": "What's is your favorite name?",
+      "answer": ["Max", "Pol", "James", "Peter"]
+    },
+  ];
 
   void _answerQuestion({String? question, required List questionList}) {
-    setState(() {
-      if (_questionIndex == questionList.length - 1) {
-        _questionIndex = 0;
-      } else {
+    if (_questionIndex < questionList.length) {
+      setState(() {
         _questionIndex = _questionIndex + 1;
-      }
-    });
+      });
+    }
 
     // ignore: avoid_print
     print(_questionIndex);
@@ -50,20 +62,6 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     // compile time constant => also implicitly runtime constant
     // this will never change even during run time
-    const questions = [
-      {
-        "questionText": "What's is your favorite color?",
-        "answer": ["Black", "Red", "Green", "Yellow"]
-      },
-      {
-        "questionText": "What's is your favorite animal?",
-        "answer": ["dog", "cat", "monkey"]
-      },
-      {
-        "questionText": "What's is your favorite name?",
-        "answer": ["Max", "Pol", "James", "Peter"]
-      },
-    ];
 
     // MaterialApp takes "named" argument
     // MaterialApp is a class
@@ -75,19 +73,21 @@ class _MyAppState extends State<MyApp> {
             "My First App",
           ),
         ),
-        body: Column(
-          children: [
-            Question(questions[_questionIndex]["questionText"] as String),
-            ...(questions[_questionIndex]["answer"] as List<String>)
-                .map((answer) {
-              return Answer(
-                btnName: answer,
-                voidCallback: () =>
-                    _answerQuestion(question: "1", questionList: questions),
-              );
-            }).toList(),
-          ],
-        ),
+        body: _questionIndex < questions.length
+            ? Column(
+                children: [
+                  Question(questions[_questionIndex]["questionText"] as String),
+                  ...(questions[_questionIndex]["answer"] as List<String>)
+                      .map((answer) {
+                    return Answer(
+                      btnName: answer,
+                      voidCallback: () => _answerQuestion(
+                          question: "1", questionList: questions),
+                    );
+                  }).toList(),
+                ],
+              )
+            : const Center(child: Text("Completed!")),
       ),
     );
   }
